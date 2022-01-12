@@ -19,6 +19,7 @@
 
 
 ## Requirements
+* Python >= 3.8
 * opencv-python
     > pip install opencv-python
 * opencv-contrib-python
