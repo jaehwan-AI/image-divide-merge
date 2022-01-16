@@ -2,10 +2,16 @@
 ---------------------
 ## Table of Contents
 
+* [Overview](#overview)
 * [Contents](#contents)
 * [Requirements](#requirements)
 * [Quick Start](#quick-start)
 
+## Overview
+* trial
+    1. 이미지 stitching : 이미지의 공통된 부분을 파노라마 형식으로 연결하는 방법으로 시도하려 했으나 이미지에 공통된 부분이 없어 매끄러운 연결이 되지 않음
+    2. 이미지 사이의 edge 유사도 비교 : 이미지와 이미지의 edge 간 유사도를 비교해서 일정 threshold를 넘으면 연결하는 방법
+    3. puzzle solver model 사용 : 이미지 임베딩 후 KNN model을 통해 유사도로 이미지를 연결하는 방법
 
 ## Contents
 ```
