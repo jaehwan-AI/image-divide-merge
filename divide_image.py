@@ -43,7 +43,7 @@ def createDirectory(save_dir):
 def divide_transform(args):
     save_dir = increment_path(os.path.join(args.prefix_output))
     createDirectory(save_dir)
-    json_object = []
+    # json_object = []
 
     img = cv2.imread(args.file_name)
 
