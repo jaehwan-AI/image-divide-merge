@@ -1,5 +1,4 @@
 import argparse
-import json
 import os
 
 import albumentations as A
@@ -14,8 +13,7 @@ from puzzle_solver import (fit_knn_model, generate_embedding_from_model,
 
 def merge(args):
     fold_name = args.prefix_input
-    json_object = json.load(open(f'{fold_name}/state.json', 'r'))
-
+    file_names = os.listdir(fold_name)
     
     model = AutoEncoder()
     raw_embedding_flatten, transformed_embedding_flatten = generate_embedding_from_model(model, raw_image, transformed_image, output_shape_model)
@@ -27,5 +25,5 @@ def merge(args):
     final_list_map = generate_mapping_list(knn, )
     final_image_np = generate_result_image()
     
-    cv2.imwrite('output.jpg', np.array(img_tiles))
+    cv2.imwrite('output.jpg', np.array(final_image_np))
     print("Success merged!!")
