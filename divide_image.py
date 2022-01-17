@@ -1,5 +1,5 @@
 import argparse
-import json
+# import json
 import os
 import random
 import re
@@ -55,26 +55,26 @@ def divide_transform(args):
     for i in range(args.row_num):
         for j in range(args.col_num):
             image = img[i*height:(i+1)*height, j*width:(j+1)*width, :]
-            vf, hf, r = False, False, False
+            # vf, hf, r = False, False, False
             if args.transform:
                 if random.random() < 0.5:
                     image = A.VerticalFlip(p=1.0)(image=image)['image']
-                    vf = True
+                    # vf = True
                 if random.random() < 0.5:
                     image = A.HorizontalFlip(p=1.0)(image=image)['image']
-                    hf = True
+                    # hf = True
                 if random.random() < 0.5:
                     image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
-                    r = True
+                    # r = True
             
             file_name = int(random.random()*65536)
             cv2.imwrite(f'{save_dir}/test_{file_name}.jpg', np.array(image))
 
-            state = {'idx': file_name, 'vf': vf, 'hf': hf, 'r': r}
-            json_object.append(state)
+            # state = {'idx': file_name, 'vf': vf, 'hf': hf, 'r': r}
+            # json_object.append(state)
 
-    with open(f'{save_dir}/state.json', 'w', encoding='utf-8') as f:
-        json.dump(json_object, f, indent='\t')
+    # with open(f'{save_dir}/state.json', 'w', encoding='utf-8') as f:
+    #     json.dump(json_object, f, indent='\t')
 
     print("Success divided!!")
 
